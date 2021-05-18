@@ -109,7 +109,7 @@ function () {
   }, {
     key: "renderHero",
     value: function renderHero(index) {
-      return "<div class=\"accordion-item\">\n                <h2 class=\"accordion-header\" id=\"heading".concat(this.name.replace(" ", ""), "\">\n                    <button class=\"accordion-button ").concat(index != 0 ? "collapsed" : "", "\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#collapse").concat(this.name.replace(" ", ""), "\" aria-expanded=\"").concat(index != 0 ? "false" : "true", "\" aria-controls=\"collapseOne\">\n                        <img class=\"heroesAva\" src=\"./images/").concat(this.name.replace(" ", "_"), "-ava.png\" alt=\"").concat(this.name.replace(" ", ""), "\">\n                        ").concat(this.name, "\n                    </button>\n                </h2>\n                <div id=\"collapse").concat(this.name.replace(" ", ""), "\" class=\"accordion-collapse collapse ").concat(index != 0 ? "" : "show", "\" aria-labelledby=\"heading").concat(this.name.replace(" ", ""), "\" data-bs-parent=\"#accordionSpookyHeroes\">\n                    <div class=\"accordion-body\">\n                        <img class=\"heroImg\" src=\"./images/").concat(this.name.toLowerCase().replace(" ", ""), ".jpg\" alt=\"").concat(this.name, "\">\n                        <p>").concat(this.info, "</p>\n                    </div>\n                </div>\n            </div>");
+      return "<div class=\"accordion-item\">\n                <h2 class=\"accordion-header\" id=\"heading".concat(this.name.replace(" ", ""), "\">\n                    <button class=\"accordion-button ").concat(index != 0 ? "collapsed" : "", "\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#collapse").concat(this.name.replace(" ", ""), "\" aria-expanded=\"").concat(index != 0 ? "false" : "true", "\" aria-controls=\"collapse").concat(this.name.replace(" ", ""), "\">\n                        <img class=\"heroesAva\" src=\"./images/").concat(this.name.replace(" ", "_"), "-ava.png\" alt=\"").concat(this.name.replace(" ", ""), "\">\n                        ").concat(this.name, "\n                    </button>\n                </h2>\n                <div id=\"collapse").concat(this.name.replace(" ", ""), "\" class=\"accordion-collapse collapse ").concat(index != 0 ? "" : "show", "\" aria-labelledby=\"heading").concat(this.name.replace(" ", ""), "\" data-bs-parent=\"#accordionSpookyHeroes\">\n                    <div class=\"accordion-body\">\n                        <img class=\"heroImg\" src=\"./images/").concat(this.name.toLowerCase().replace(" ", ""), ".jpg\" alt=\"").concat(this.name, "\">\n                        <p>").concat(this.info, "</p>\n                    </div>\n                </div>\n            </div>");
     }
   }]);
 
@@ -130,8 +130,17 @@ function (_Hero) {
   _createClass(StreightHero, [{
     key: "renderPodium",
     value: function renderPodium() {
-      var content = "<img src=\"./images/".concat(this.name.toLowerCase().replace(" ", ""), ".jpg\" alt=\"").concat(this.name, "\"></img>");
-      PODIUM.innerHTML += content;
+      var _this = this;
+
+      var hero = document.createElement('img');
+      hero.id = "streigh-".concat(this.name.toLowerCase().replace(" ", ""));
+      hero.src = "./images/".concat(this.name.toLowerCase().replace(" ", ""), ".jpg");
+      hero.alt = "".concat(this.name);
+      PODIUM.append(hero);
+      hero.addEventListener('click', function () {
+        var button = document.querySelector("button[aria-controls=\"collapse".concat(_this.name.replace(" ", ""), "\"]"));
+        button.click();
+      });
     }
   }]);
 
@@ -152,8 +161,17 @@ function (_Hero2) {
   _createClass(AgilityHero, [{
     key: "renderPodium",
     value: function renderPodium() {
-      var content = "<img src=\"./images/".concat(this.name.toLowerCase().replace(" ", ""), ".jpg\" alt=\"").concat(this.name, "\"></img>");
-      PODIUM.innerHTML += content;
+      var _this2 = this;
+
+      var hero = document.createElement('img');
+      hero.id = "agility-".concat(this.name.toLowerCase().replace(" ", ""));
+      hero.src = "./images/".concat(this.name.toLowerCase().replace(" ", ""), ".jpg");
+      hero.alt = "".concat(this.name);
+      PODIUM.append(hero);
+      hero.addEventListener('click', function () {
+        var button = document.querySelector("button[aria-controls=\"collapse".concat(_this2.name.replace(" ", ""), "\"]"));
+        button.click();
+      });
     }
   }]);
 
@@ -174,8 +192,17 @@ function (_Hero3) {
   _createClass(IntelegenceHero, [{
     key: "renderPodium",
     value: function renderPodium() {
-      var content = "<img src=\"./images/".concat(this.name.toLowerCase().replace(" ", ""), ".jpg\" alt=\"").concat(this.name, "\"></img>");
-      PODIUM.innerHTML += content;
+      var _this3 = this;
+
+      var hero = document.createElement('img');
+      hero.id = "intelegence-".concat(this.name.toLowerCase().replace(" ", ""));
+      hero.src = "./images/".concat(this.name.toLowerCase().replace(" ", ""), ".jpg");
+      hero.alt = "".concat(this.name);
+      PODIUM.append(hero);
+      hero.addEventListener('click', function () {
+        var button = document.querySelector("button[aria-controls=\"collapse".concat(_this3.name.replace(" ", ""), "\"]"));
+        button.click();
+      });
     }
   }]);
 

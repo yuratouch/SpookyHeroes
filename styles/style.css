@@ -23,5 +23,7 @@
   .podium img {
     width: 10%;
     min-width: 100px; }
+    .podium img:hover {
+      cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */

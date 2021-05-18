@@ -85,7 +85,7 @@ class Hero {
     renderHero(index) {
         return `<div class="accordion-item">
                 <h2 class="accordion-header" id="heading${(this.name).replace(" ", "")}">
-                    <button class="accordion-button ${index != 0 ? "collapsed" : ""}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${(this.name).replace(" ", "")}" aria-expanded="${index != 0 ? "false" : "true"}" aria-controls="collapseOne">
+                    <button class="accordion-button ${index != 0 ? "collapsed" : ""}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${(this.name).replace(" ", "")}" aria-expanded="${index != 0 ? "false" : "true"}" aria-controls="collapse${(this.name).replace(" ", "")}">
                         <img class="heroesAva" src="./images/${(this.name).replace(" ", "_")}-ava.png" alt="${(this.name).replace(" ", "")}">
                         ${this.name}
                     </button>
@@ -104,10 +104,17 @@ class StreightHero extends Hero {
     constructor(hero) {
         super(hero);
     }
-    
+
     renderPodium() {
-        let content = `<img src="./images/${(this.name).toLowerCase().replace(" ", "")}.jpg" alt="${(this.name)}"></img>`;
-        PODIUM.innerHTML += content;
+        let hero = document.createElement('img');
+        hero.id = `streigh-${(this.name).toLowerCase().replace(" ", "")}`;
+        hero.src = `./images/${(this.name).toLowerCase().replace(" ", "")}.jpg`;
+        hero.alt = `${(this.name)}`;
+        PODIUM.append(hero);
+        hero.addEventListener('click', () => {
+            let button = document.querySelector(`button[aria-controls="collapse${(this.name).replace(" ", "")}"]`);
+            button.click();
+        })
     }
 }
 
@@ -117,8 +124,15 @@ class AgilityHero extends Hero {
     }
     
     renderPodium() {
-        let content = `<img src="./images/${(this.name).toLowerCase().replace(" ", "")}.jpg" alt="${(this.name)}"></img>`;
-        PODIUM.innerHTML += content;
+        let hero = document.createElement('img');
+        hero.id = `agility-${(this.name).toLowerCase().replace(" ", "")}`;
+        hero.src = `./images/${(this.name).toLowerCase().replace(" ", "")}.jpg`;
+        hero.alt = `${(this.name)}`;
+        PODIUM.append(hero);
+        hero.addEventListener('click', () => {
+            let button = document.querySelector(`button[aria-controls="collapse${(this.name).replace(" ", "")}"]`);
+            button.click();
+        })
     }
 }
 
@@ -128,8 +142,15 @@ class IntelegenceHero extends Hero {
     }
     
     renderPodium() {
-        let content = `<img src="./images/${(this.name).toLowerCase().replace(" ", "")}.jpg" alt="${(this.name)}"></img>`;
-        PODIUM.innerHTML += content;
+        let hero = document.createElement('img');
+        hero.id = `intelegence-${(this.name).toLowerCase().replace(" ", "")}`;
+        hero.src = `./images/${(this.name).toLowerCase().replace(" ", "")}.jpg`;
+        hero.alt = `${(this.name)}`;
+        PODIUM.append(hero);
+        hero.addEventListener('click', () => {
+            let button = document.querySelector(`button[aria-controls="collapse${(this.name).replace(" ", "")}"]`);
+            button.click();
+        })
     }
 }
 
