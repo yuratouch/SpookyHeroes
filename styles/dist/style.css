@@ -21,3 +21,15 @@
 .accordion-body {
   min-height: 150px;
 }
+
+.podium {
+  padding: 50px 10px;
+  text-align: center;
+}
+.podium img {
+  width: 10%;
+  min-width: 100px;
+}
+.podium img:hover {
+  cursor: pointer;
+}
