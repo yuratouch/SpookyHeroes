@@ -64,6 +64,9 @@ class Heroes {
         let heroesAccordion = heroes
             .map((hero, index) => hero.renderHero(index))
             .join("");
+        let heroesContainer = heroes
+            .map((hero, index) => hero.renderContainer(index))
+            .join("");
         let heroesPodium = heroes
             .map(hero => hero.renderPodium())
             .join("");
@@ -98,6 +101,13 @@ class Hero {
                 </div>
             </div>`;
     }
+
+    renderContainer() {
+        let heroContainer = document.createElement('div');
+        heroContainer.id = `container-${(this.name).toLowerCase().replace(" ", "")}`;
+        heroContainer.classList.add('heroContainer');
+        PODIUM.append(heroContainer);
+    }
 }
 
 class StreightHero extends Hero {
@@ -110,12 +120,16 @@ class StreightHero extends Hero {
         hero.id = `streigh-${(this.name).toLowerCase().replace(" ", "")}`;
         hero.src = `./images/${(this.name).toLowerCase().replace(" ", "")}.jpg`;
         hero.alt = `${(this.name)}`;
-        PODIUM.append(hero);
+
+        let heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`);
+        heroContainer.append(hero);
         hero.addEventListener('click', () => {
             let button = document.querySelector(`button[aria-controls="collapse${(this.name).replace(" ", "")}"]`);
             button.click();
         })
     }
+
+    
 }
 
 class AgilityHero extends Hero {
@@ -128,7 +142,9 @@ class AgilityHero extends Hero {
         hero.id = `agility-${(this.name).toLowerCase().replace(" ", "")}`;
         hero.src = `./images/${(this.name).toLowerCase().replace(" ", "")}.jpg`;
         hero.alt = `${(this.name)}`;
-        PODIUM.append(hero);
+        
+        let heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`);
+        heroContainer.append(hero);
         hero.addEventListener('click', () => {
             let button = document.querySelector(`button[aria-controls="collapse${(this.name).replace(" ", "")}"]`);
             button.click();
@@ -146,7 +162,9 @@ class IntelegenceHero extends Hero {
         hero.id = `intelegence-${(this.name).toLowerCase().replace(" ", "")}`;
         hero.src = `./images/${(this.name).toLowerCase().replace(" ", "")}.jpg`;
         hero.alt = `${(this.name)}`;
-        PODIUM.append(hero);
+
+        let heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`);
+        heroContainer.append(hero);
         hero.addEventListener('click', () => {
             let button = document.querySelector(`button[aria-controls="collapse${(this.name).replace(" ", "")}"]`);
             button.click();

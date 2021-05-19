@@ -80,6 +80,9 @@ function () {
       var heroesAccordion = heroes.map(function (hero, index) {
         return hero.renderHero(index);
       }).join("");
+      var heroesContainer = heroes.map(function (hero, index) {
+        return hero.renderContainer(index);
+      }).join("");
       var heroesPodium = heroes.map(function (hero) {
         return hero.renderPodium();
       }).join("");
@@ -111,6 +114,14 @@ function () {
     value: function renderHero(index) {
       return "<div class=\"accordion-item\">\n                <h2 class=\"accordion-header\" id=\"heading".concat(this.name.replace(" ", ""), "\">\n                    <button class=\"accordion-button ").concat(index != 0 ? "collapsed" : "", "\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#collapse").concat(this.name.replace(" ", ""), "\" aria-expanded=\"").concat(index != 0 ? "false" : "true", "\" aria-controls=\"collapse").concat(this.name.replace(" ", ""), "\">\n                        <img class=\"heroesAva\" src=\"./images/").concat(this.name.replace(" ", "_"), "-ava.png\" alt=\"").concat(this.name.replace(" ", ""), "\">\n                        ").concat(this.name, "\n                    </button>\n                </h2>\n                <div id=\"collapse").concat(this.name.replace(" ", ""), "\" class=\"accordion-collapse collapse ").concat(index != 0 ? "" : "show", "\" aria-labelledby=\"heading").concat(this.name.replace(" ", ""), "\" data-bs-parent=\"#accordionSpookyHeroes\">\n                    <div class=\"accordion-body\">\n                        <img class=\"heroImg\" src=\"./images/").concat(this.name.toLowerCase().replace(" ", ""), ".jpg\" alt=\"").concat(this.name, "\">\n                        <p>").concat(this.info, "</p>\n                    </div>\n                </div>\n            </div>");
     }
+  }, {
+    key: "renderContainer",
+    value: function renderContainer() {
+      var heroContainer = document.createElement('div');
+      heroContainer.id = "container-".concat(this.name.toLowerCase().replace(" ", ""));
+      heroContainer.classList.add('heroContainer');
+      PODIUM.append(heroContainer);
+    }
   }]);
 
   return Hero;
@@ -136,7 +147,8 @@ function (_Hero) {
       hero.id = "streigh-".concat(this.name.toLowerCase().replace(" ", ""));
       hero.src = "./images/".concat(this.name.toLowerCase().replace(" ", ""), ".jpg");
       hero.alt = "".concat(this.name);
-      PODIUM.append(hero);
+      var heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", "")));
+      heroContainer.append(hero);
       hero.addEventListener('click', function () {
         var button = document.querySelector("button[aria-controls=\"collapse".concat(_this.name.replace(" ", ""), "\"]"));
         button.click();
@@ -167,7 +179,8 @@ function (_Hero2) {
       hero.id = "agility-".concat(this.name.toLowerCase().replace(" ", ""));
       hero.src = "./images/".concat(this.name.toLowerCase().replace(" ", ""), ".jpg");
       hero.alt = "".concat(this.name);
-      PODIUM.append(hero);
+      var heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", "")));
+      heroContainer.append(hero);
       hero.addEventListener('click', function () {
         var button = document.querySelector("button[aria-controls=\"collapse".concat(_this2.name.replace(" ", ""), "\"]"));
         button.click();
@@ -198,7 +211,8 @@ function (_Hero3) {
       hero.id = "intelegence-".concat(this.name.toLowerCase().replace(" ", ""));
       hero.src = "./images/".concat(this.name.toLowerCase().replace(" ", ""), ".jpg");
       hero.alt = "".concat(this.name);
-      PODIUM.append(hero);
+      var heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", "")));
+      heroContainer.append(hero);
       hero.addEventListener('click', function () {
         var button = document.querySelector("button[aria-controls=\"collapse".concat(_this3.name.replace(" ", ""), "\"]"));
         button.click();

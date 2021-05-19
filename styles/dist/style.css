@@ -25,6 +25,7 @@
 .podium {
   padding: 50px 10px;
   text-align: center;
+  display: flex;
 }
 .podium img {
   width: 10%;
@@ -32,4 +33,12 @@
 }
 .podium img:hover {
   cursor: pointer;
+}
+
+.attributeImg {
+  background-image: url("../images/Strength_attribute_symbol.png");
+  width: 30px;
+  height: 30px;
+  background-position: center;
+  background-size: contain;
 }
