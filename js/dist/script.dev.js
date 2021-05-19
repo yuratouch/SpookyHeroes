@@ -86,6 +86,9 @@ function () {
       var heroesPodium = heroes.map(function (hero) {
         return hero.renderPodium();
       }).join("");
+      var heroesAttribute = heroes.map(function (hero) {
+        return hero.renderAttribute();
+      }).join("");
       ACCORDION.innerHTML = heroesAccordion;
     }
   }]);
@@ -154,6 +157,15 @@ function (_Hero) {
         button.click();
       });
     }
+  }, {
+    key: "renderAttribute",
+    value: function renderAttribute() {
+      var heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", "")));
+      var attribute = document.createElement('div');
+      attribute.classList.add('attributeSymbol');
+      attribute.style.backgroundImage = "url('../images/strength-attribute.png')";
+      heroContainer.prepend(attribute);
+    }
   }]);
 
   return StreightHero;
@@ -186,6 +198,15 @@ function (_Hero2) {
         button.click();
       });
     }
+  }, {
+    key: "renderAttribute",
+    value: function renderAttribute() {
+      var heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", "")));
+      var attribute = document.createElement('div');
+      attribute.classList.add('attributeSymbol');
+      attribute.style.backgroundImage = "url('../images/agility-attribute.png')";
+      heroContainer.prepend(attribute);
+    }
   }]);
 
   return AgilityHero;
@@ -217,6 +238,15 @@ function (_Hero3) {
         var button = document.querySelector("button[aria-controls=\"collapse".concat(_this3.name.replace(" ", ""), "\"]"));
         button.click();
       });
+    }
+  }, {
+    key: "renderAttribute",
+    value: function renderAttribute() {
+      var heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", "")));
+      var attribute = document.createElement('div');
+      attribute.classList.add('attributeSymbol');
+      attribute.style.backgroundImage = "url('../images/intelligence-attribute.png')";
+      heroContainer.prepend(attribute);
     }
   }]);
 

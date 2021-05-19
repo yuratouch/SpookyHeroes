@@ -70,6 +70,9 @@ class Heroes {
         let heroesPodium = heroes
             .map(hero => hero.renderPodium())
             .join("");
+        let heroesAttribute = heroes
+            .map(hero => hero.renderAttribute())
+            .join("");
         ACCORDION.innerHTML = heroesAccordion
     }
 }
@@ -129,7 +132,13 @@ class StreightHero extends Hero {
         })
     }
 
-    
+    renderAttribute() {
+        let heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`);
+        let attribute = document.createElement('div');
+        attribute.classList.add('attributeSymbol');
+        attribute.style.backgroundImage = "url('../images/strength-attribute.png')";
+        heroContainer.prepend(attribute);
+    }
 }
 
 class AgilityHero extends Hero {
@@ -150,6 +159,14 @@ class AgilityHero extends Hero {
             button.click();
         })
     }
+
+    renderAttribute() {
+        let heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`);
+        let attribute = document.createElement('div');
+        attribute.classList.add('attributeSymbol');
+        attribute.style.backgroundImage = "url('../images/agility-attribute.png')";
+        heroContainer.prepend(attribute);
+    }
 }
 
 class IntelegenceHero extends Hero {
@@ -169,6 +186,14 @@ class IntelegenceHero extends Hero {
             let button = document.querySelector(`button[aria-controls="collapse${(this.name).replace(" ", "")}"]`);
             button.click();
         })
+    }
+
+    renderAttribute() {
+        let heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`);
+        let attribute = document.createElement('div');
+        attribute.classList.add('attributeSymbol');
+        attribute.style.backgroundImage = "url('../images/intelligence-attribute.png')";
+        heroContainer.prepend(attribute);
     }
 }
 

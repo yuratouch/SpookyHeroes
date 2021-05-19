@@ -27,11 +27,11 @@
     .podium img:hover {
       cursor: pointer; }
 
-.attributeImg {
-  background-image: url("../images/Strength_attribute_symbol.png");
+.attributeSymbol {
   width: 30px;
   height: 30px;
   background-position: center;
-  background-size: contain; }
+  background-size: contain;
+  margin: 0 auto 20px; }
 
 /*# sourceMappingURL=style.css.map */
