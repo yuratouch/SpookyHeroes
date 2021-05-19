@@ -162,6 +162,7 @@ function (_Hero) {
     value: function renderAttribute() {
       var heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", "")));
       var attribute = document.createElement('div');
+      attribute.id = "attribute-".concat(this.name.toLowerCase().replace(" ", ""));
       attribute.classList.add('attributeSymbol');
       attribute.style.backgroundImage = "url('../images/strength-attribute.png')";
       heroContainer.prepend(attribute);
@@ -203,6 +204,7 @@ function (_Hero2) {
     value: function renderAttribute() {
       var heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", "")));
       var attribute = document.createElement('div');
+      attribute.id = "attribute-".concat(this.name.toLowerCase().replace(" ", ""));
       attribute.classList.add('attributeSymbol');
       attribute.style.backgroundImage = "url('../images/agility-attribute.png')";
       heroContainer.prepend(attribute);
@@ -244,6 +246,7 @@ function (_Hero3) {
     value: function renderAttribute() {
       var heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", "")));
       var attribute = document.createElement('div');
+      attribute.id = "attribute-".concat(this.name.toLowerCase().replace(" ", ""));
       attribute.classList.add('attributeSymbol');
       attribute.style.backgroundImage = "url('../images/intelligence-attribute.png')";
       heroContainer.prepend(attribute);

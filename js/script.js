@@ -135,6 +135,7 @@ class StreightHero extends Hero {
     renderAttribute() {
         let heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`);
         let attribute = document.createElement('div');
+        attribute.id = `attribute-${(this.name).toLowerCase().replace(" ", "")}`;
         attribute.classList.add('attributeSymbol');
         attribute.style.backgroundImage = "url('../images/strength-attribute.png')";
         heroContainer.prepend(attribute);
@@ -163,6 +164,7 @@ class AgilityHero extends Hero {
     renderAttribute() {
         let heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`);
         let attribute = document.createElement('div');
+        attribute.id = `attribute-${(this.name).toLowerCase().replace(" ", "")}`;
         attribute.classList.add('attributeSymbol');
         attribute.style.backgroundImage = "url('../images/agility-attribute.png')";
         heroContainer.prepend(attribute);
@@ -191,6 +193,7 @@ class IntelegenceHero extends Hero {
     renderAttribute() {
         let heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`);
         let attribute = document.createElement('div');
+        attribute.id = `attribute-${(this.name).toLowerCase().replace(" ", "")}`;
         attribute.classList.add('attributeSymbol');
         attribute.style.backgroundImage = "url('../images/intelligence-attribute.png')";
         heroContainer.prepend(attribute);
