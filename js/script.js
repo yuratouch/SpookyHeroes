@@ -47,7 +47,8 @@ const DATA = [
 ]
 
 const ACCORDION = document.querySelector("#accordionSpookyHeroes"),
-    PODIUM = document.querySelector("#podium");
+    PODIUM = document.querySelector("#podium"),
+    METHODS = ["renderContainer", "renderPodium", "addAccordionClick", "renderAttribute", "addAttributeHover"];
 
 class Heroes {
     static createHeroes(arr) {
@@ -61,11 +62,12 @@ class Heroes {
                     return new IntelegenceHero(hero)
                 }
             })
+        
         let heroesAccordion = heroes
             .map((hero, index) => hero.renderHero(index))
             .join("");
         let heroesContainer = heroes
-            .map((hero, index) => hero.renderContainer(index))
+            .map(hero => hero.renderContainer())
             .join("");
         let heroesPodium = heroes
             .map(hero => hero.renderPodium())
@@ -75,6 +77,9 @@ class Heroes {
             .join("");
         let heroesAttribute = heroes
             .map(hero => hero.renderAttribute())
+            .join("");
+        let heroesaddAttributeHover = heroes
+            .map(hero => hero.addAttributeHover())
             .join("");
         ACCORDION.innerHTML = heroesAccordion
     }
@@ -147,6 +152,18 @@ class StreightHero extends Hero {
         attribute.style.backgroundImage = "url('../images/strength-attribute.png')";
         heroContainer.prepend(attribute);
     }
+
+    addAttributeHover() {
+        let hero = document.querySelector(`#${(this.type) + `-` + (this.name).toLowerCase().replace(" ", "")}`);
+        hero.addEventListener('mouseenter', () => {
+            let attribute = document.querySelector(`#attribute-${(this.name).toLowerCase().replace(" ", "")}`);
+            attribute.classList.add('attributeAction');
+        })
+        hero.addEventListener('mouseleave', () => {
+            let attribute = document.querySelector(`#attribute-${(this.name).toLowerCase().replace(" ", "")}`);
+            attribute.classList.remove('attributeAction');
+        })
+    }
 }
 
 class AgilityHero extends Hero {
@@ -180,6 +197,18 @@ class AgilityHero extends Hero {
         attribute.style.backgroundImage = "url('../images/agility-attribute.png')";
         heroContainer.prepend(attribute);
     }
+
+    addAttributeHover() {
+        let hero = document.querySelector(`#${(this.type) + `-` + (this.name).toLowerCase().replace(" ", "")}`);
+        hero.addEventListener('mouseenter', () => {
+            let attribute = document.querySelector(`#attribute-${(this.name).toLowerCase().replace(" ", "")}`);
+            attribute.classList.add('attributeAction');
+        })
+        hero.addEventListener('mouseleave', () => {
+            let attribute = document.querySelector(`#attribute-${(this.name).toLowerCase().replace(" ", "")}`);
+            attribute.classList.remove('attributeAction');
+        })
+    }
 }
 
 class IntelegenceHero extends Hero {
@@ -211,6 +240,18 @@ class IntelegenceHero extends Hero {
         attribute.classList.add('attributeSymbol');
         attribute.style.backgroundImage = "url('../images/intelligence-attribute.png')";
         heroContainer.prepend(attribute);
+    }
+
+    addAttributeHover() {
+        let hero = document.querySelector(`#${(this.type) + `-` + (this.name).toLowerCase().replace(" ", "")}`);
+        hero.addEventListener('mouseenter', () => {
+            let attribute = document.querySelector(`#attribute-${(this.name).toLowerCase().replace(" ", "")}`);
+            attribute.classList.add('attributeAction');
+        })
+        hero.addEventListener('mouseleave', () => {
+            let attribute = document.querySelector(`#attribute-${(this.name).toLowerCase().replace(" ", "")}`);
+            attribute.classList.remove('attributeAction');
+        })
     }
 }
 
