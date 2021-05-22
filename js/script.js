@@ -70,6 +70,9 @@ class Heroes {
         let heroesPodium = heroes
             .map(hero => hero.renderPodium())
             .join("");
+        let heroesaddAccordionClick = heroes
+            .map(hero => hero.addAccordionClick())
+            .join("");
         let heroesAttribute = heroes
             .map(hero => hero.renderAttribute())
             .join("");
@@ -120,12 +123,16 @@ class StreightHero extends Hero {
 
     renderPodium() {
         let hero = document.createElement('img');
-        hero.id = `streigh-${(this.name).toLowerCase().replace(" ", "")}`;
+        hero.id = `${(this.type) + `-` + (this.name).toLowerCase().replace(" ", "")}`;
         hero.src = `./images/${(this.name).toLowerCase().replace(" ", "")}.jpg`;
         hero.alt = `${(this.name)}`;
 
         let heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`);
         heroContainer.append(hero);
+    }
+
+    addAccordionClick() {
+        let hero = document.querySelector(`#${(this.type) + `-` + (this.name).toLowerCase().replace(" ", "")}`);
         hero.addEventListener('click', () => {
             let button = document.querySelector(`button[aria-controls="collapse${(this.name).replace(" ", "")}"]`);
             button.click();
@@ -149,12 +156,16 @@ class AgilityHero extends Hero {
     
     renderPodium() {
         let hero = document.createElement('img');
-        hero.id = `agility-${(this.name).toLowerCase().replace(" ", "")}`;
+        hero.id = `${(this.type) + `-` + (this.name).toLowerCase().replace(" ", "")}`;
         hero.src = `./images/${(this.name).toLowerCase().replace(" ", "")}.jpg`;
         hero.alt = `${(this.name)}`;
         
         let heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`);
         heroContainer.append(hero);
+    }
+
+    addAccordionClick() {
+        let hero = document.querySelector(`#${(this.type) + `-` + (this.name).toLowerCase().replace(" ", "")}`);
         hero.addEventListener('click', () => {
             let button = document.querySelector(`button[aria-controls="collapse${(this.name).replace(" ", "")}"]`);
             button.click();
@@ -178,12 +189,15 @@ class IntelegenceHero extends Hero {
     
     renderPodium() {
         let hero = document.createElement('img');
-        hero.id = `intelegence-${(this.name).toLowerCase().replace(" ", "")}`;
+        hero.id = `${(this.type) + `-` + (this.name).toLowerCase().replace(" ", "")}`;
         hero.src = `./images/${(this.name).toLowerCase().replace(" ", "")}.jpg`;
         hero.alt = `${(this.name)}`;
-
         let heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`);
         heroContainer.append(hero);
+    }
+
+    addAccordionClick() {
+        let hero = document.querySelector(`#${(this.type) + `-` + (this.name).toLowerCase().replace(" ", "")}`);
         hero.addEventListener('click', () => {
             let button = document.querySelector(`button[aria-controls="collapse${(this.name).replace(" ", "")}"]`);
             button.click();

@@ -86,6 +86,9 @@ function () {
       var heroesPodium = heroes.map(function (hero) {
         return hero.renderPodium();
       }).join("");
+      var heroesaddAccordionClick = heroes.map(function (hero) {
+        return hero.addAccordionClick();
+      }).join("");
       var heroesAttribute = heroes.map(function (hero) {
         return hero.renderAttribute();
       }).join("");
@@ -144,14 +147,19 @@ function (_Hero) {
   _createClass(StreightHero, [{
     key: "renderPodium",
     value: function renderPodium() {
-      var _this = this;
-
       var hero = document.createElement('img');
-      hero.id = "streigh-".concat(this.name.toLowerCase().replace(" ", ""));
+      hero.id = "".concat(this.type + "-" + this.name.toLowerCase().replace(" ", ""));
       hero.src = "./images/".concat(this.name.toLowerCase().replace(" ", ""), ".jpg");
       hero.alt = "".concat(this.name);
       var heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", "")));
       heroContainer.append(hero);
+    }
+  }, {
+    key: "addAccordionClick",
+    value: function addAccordionClick() {
+      var _this = this;
+
+      var hero = document.querySelector("#".concat(this.type + "-" + this.name.toLowerCase().replace(" ", "")));
       hero.addEventListener('click', function () {
         var button = document.querySelector("button[aria-controls=\"collapse".concat(_this.name.replace(" ", ""), "\"]"));
         button.click();
@@ -186,14 +194,19 @@ function (_Hero2) {
   _createClass(AgilityHero, [{
     key: "renderPodium",
     value: function renderPodium() {
-      var _this2 = this;
-
       var hero = document.createElement('img');
-      hero.id = "agility-".concat(this.name.toLowerCase().replace(" ", ""));
+      hero.id = "".concat(this.type + "-" + this.name.toLowerCase().replace(" ", ""));
       hero.src = "./images/".concat(this.name.toLowerCase().replace(" ", ""), ".jpg");
       hero.alt = "".concat(this.name);
       var heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", "")));
       heroContainer.append(hero);
+    }
+  }, {
+    key: "addAccordionClick",
+    value: function addAccordionClick() {
+      var _this2 = this;
+
+      var hero = document.querySelector("#".concat(this.type + "-" + this.name.toLowerCase().replace(" ", "")));
       hero.addEventListener('click', function () {
         var button = document.querySelector("button[aria-controls=\"collapse".concat(_this2.name.replace(" ", ""), "\"]"));
         button.click();
@@ -228,14 +241,19 @@ function (_Hero3) {
   _createClass(IntelegenceHero, [{
     key: "renderPodium",
     value: function renderPodium() {
-      var _this3 = this;
-
       var hero = document.createElement('img');
-      hero.id = "intelegence-".concat(this.name.toLowerCase().replace(" ", ""));
+      hero.id = "".concat(this.type + "-" + this.name.toLowerCase().replace(" ", ""));
       hero.src = "./images/".concat(this.name.toLowerCase().replace(" ", ""), ".jpg");
       hero.alt = "".concat(this.name);
       var heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", "")));
       heroContainer.append(hero);
+    }
+  }, {
+    key: "addAccordionClick",
+    value: function addAccordionClick() {
+      var _this3 = this;
+
+      var hero = document.querySelector("#".concat(this.type + "-" + this.name.toLowerCase().replace(" ", "")));
       hero.addEventListener('click', function () {
         var button = document.querySelector("button[aria-controls=\"collapse".concat(_this3.name.replace(" ", ""), "\"]"));
         button.click();
