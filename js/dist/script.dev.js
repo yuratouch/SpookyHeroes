@@ -151,11 +151,11 @@ function (_Hero) {
   _createClass(StreightHero, [{
     key: "renderPodium",
     value: function renderPodium() {
-      var hero = document.createElement('img');
+      var hero = document.createElement('img'),
+          heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", "")));
       hero.id = "".concat(this.type + "-" + this.name.toLowerCase().replace(" ", ""));
       hero.src = "./images/".concat(this.name.toLowerCase().replace(" ", ""), ".jpg");
       hero.alt = "".concat(this.name);
-      var heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", "")));
       heroContainer.append(hero);
     }
   }, {
@@ -172,8 +172,8 @@ function (_Hero) {
   }, {
     key: "renderAttribute",
     value: function renderAttribute() {
-      var heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", "")));
-      var attribute = document.createElement('div');
+      var heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", ""))),
+          attribute = document.createElement('div');
       attribute.id = "attribute-".concat(this.name.toLowerCase().replace(" ", ""));
       attribute.classList.add('attributeSymbol');
       attribute.style.backgroundImage = "url('../images/strength-attribute.png')";
@@ -213,11 +213,11 @@ function (_Hero2) {
   _createClass(AgilityHero, [{
     key: "renderPodium",
     value: function renderPodium() {
-      var hero = document.createElement('img');
+      var hero = document.createElement('img'),
+          heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", "")));
       hero.id = "".concat(this.type + "-" + this.name.toLowerCase().replace(" ", ""));
       hero.src = "./images/".concat(this.name.toLowerCase().replace(" ", ""), ".jpg");
       hero.alt = "".concat(this.name);
-      var heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", "")));
       heroContainer.append(hero);
     }
   }, {
@@ -234,8 +234,8 @@ function (_Hero2) {
   }, {
     key: "renderAttribute",
     value: function renderAttribute() {
-      var heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", "")));
-      var attribute = document.createElement('div');
+      var heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", ""))),
+          attribute = document.createElement('div');
       attribute.id = "attribute-".concat(this.name.toLowerCase().replace(" ", ""));
       attribute.classList.add('attributeSymbol');
       attribute.style.backgroundImage = "url('../images/agility-attribute.png')";
@@ -275,11 +275,11 @@ function (_Hero3) {
   _createClass(IntelegenceHero, [{
     key: "renderPodium",
     value: function renderPodium() {
-      var hero = document.createElement('img');
+      var hero = document.createElement('img'),
+          heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", "")));
       hero.id = "".concat(this.type + "-" + this.name.toLowerCase().replace(" ", ""));
       hero.src = "./images/".concat(this.name.toLowerCase().replace(" ", ""), ".jpg");
       hero.alt = "".concat(this.name);
-      var heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", "")));
       heroContainer.append(hero);
     }
   }, {
@@ -296,8 +296,8 @@ function (_Hero3) {
   }, {
     key: "renderAttribute",
     value: function renderAttribute() {
-      var heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", "")));
-      var attribute = document.createElement('div');
+      var heroContainer = document.querySelector("#container-".concat(this.name.toLowerCase().replace(" ", ""))),
+          attribute = document.createElement('div');
       attribute.id = "attribute-".concat(this.name.toLowerCase().replace(" ", ""));
       attribute.classList.add('attributeSymbol');
       attribute.style.backgroundImage = "url('../images/intelligence-attribute.png')";
