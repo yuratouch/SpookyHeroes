@@ -62,6 +62,7 @@ class Heroes {
                     return new IntelegenceHero(hero)
                 }
             })
+        
         let heroesAccordion = heroes
             .map((hero, index) => hero.renderHero(index))
             .join("");
@@ -154,6 +155,7 @@ class StreightHero extends Hero {
 
     addAttributeHover() {
         let hero = document.querySelector(`#${(this.type) + `-` + (this.name).toLowerCase().replace(" ", "")}`);
+
 
         hero.addEventListener('mouseenter', () => {
             let attribute = document.querySelector(`#attribute-${(this.name).toLowerCase().replace(" ", "")}`);
