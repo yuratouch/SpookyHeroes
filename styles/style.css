@@ -32,6 +32,10 @@
   height: 30px;
   background-position: center;
   background-size: contain;
-  margin: 0 auto 20px; }
+  margin: 0 auto 20px;
+  opacity: 0; }
+
+.attributeAction {
+  opacity: 1; }
 
 /*# sourceMappingURL=style.css.map */
