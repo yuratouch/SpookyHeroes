@@ -73,10 +73,13 @@ class Heroes {
             .join("");
         let heroesaddAccordionClick = heroes
             .map(hero => hero.addAccordionClick())
+            .join("");
         let heroesAttribute = heroes
             .map(hero => hero.renderAttribute())
+            .join("");
         let heroesaddAttributeHover = heroes
             .map(hero => hero.addAttributeHover())
+            .join("");
         ACCORDION.innerHTML = heroesAccordion
     }
 }

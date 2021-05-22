@@ -89,13 +89,13 @@ function () {
       }).join("");
       var heroesaddAccordionClick = heroes.map(function (hero) {
         return hero.addAccordionClick();
-      });
+      }).join("");
       var heroesAttribute = heroes.map(function (hero) {
         return hero.renderAttribute();
-      });
+      }).join("");
       var heroesaddAttributeHover = heroes.map(function (hero) {
         return hero.addAttributeHover();
-      });
+      }).join("");
       ACCORDION.innerHTML = heroesAccordion;
     }
   }]);
