@@ -74,13 +74,10 @@ class Heroes {
             .join("");
         let heroesaddAccordionClick = heroes
             .map(hero => hero.addAccordionClick())
-            .join("");
         let heroesAttribute = heroes
             .map(hero => hero.renderAttribute())
-            .join("");
         let heroesaddAttributeHover = heroes
             .map(hero => hero.addAttributeHover())
-            .join("");
         ACCORDION.innerHTML = heroesAccordion
     }
 }
@@ -115,6 +112,7 @@ class Hero {
 
     renderContainer() {
         let heroContainer = document.createElement('div');
+        
         heroContainer.id = `container-${(this.name).toLowerCase().replace(" ", "")}`;
         heroContainer.classList.add('heroContainer');
         PODIUM.append(heroContainer);
@@ -127,17 +125,18 @@ class StreightHero extends Hero {
     }
 
     renderPodium() {
-        let hero = document.createElement('img');
+        let hero = document.createElement('img'),
+            heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`);
+        
         hero.id = `${(this.type) + `-` + (this.name).toLowerCase().replace(" ", "")}`;
         hero.src = `./images/${(this.name).toLowerCase().replace(" ", "")}.jpg`;
         hero.alt = `${(this.name)}`;
-
-        let heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`);
         heroContainer.append(hero);
     }
 
     addAccordionClick() {
         let hero = document.querySelector(`#${(this.type) + `-` + (this.name).toLowerCase().replace(" ", "")}`);
+
         hero.addEventListener('click', () => {
             let button = document.querySelector(`button[aria-controls="collapse${(this.name).replace(" ", "")}"]`);
             button.click();
@@ -145,8 +144,9 @@ class StreightHero extends Hero {
     }
 
     renderAttribute() {
-        let heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`);
-        let attribute = document.createElement('div');
+        let heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`),
+            attribute = document.createElement('div');
+
         attribute.id = `attribute-${(this.name).toLowerCase().replace(" ", "")}`;
         attribute.classList.add('attributeSymbol');
         attribute.style.backgroundImage = "url('../images/strength-attribute.png')";
@@ -155,6 +155,8 @@ class StreightHero extends Hero {
 
     addAttributeHover() {
         let hero = document.querySelector(`#${(this.type) + `-` + (this.name).toLowerCase().replace(" ", "")}`);
+
+
         hero.addEventListener('mouseenter', () => {
             let attribute = document.querySelector(`#attribute-${(this.name).toLowerCase().replace(" ", "")}`);
             attribute.classList.add('attributeAction');
@@ -172,12 +174,12 @@ class AgilityHero extends Hero {
     }
     
     renderPodium() {
-        let hero = document.createElement('img');
+        let hero = document.createElement('img'),
+            heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`);
+
         hero.id = `${(this.type) + `-` + (this.name).toLowerCase().replace(" ", "")}`;
         hero.src = `./images/${(this.name).toLowerCase().replace(" ", "")}.jpg`;
         hero.alt = `${(this.name)}`;
-        
-        let heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`);
         heroContainer.append(hero);
     }
 
@@ -190,8 +192,9 @@ class AgilityHero extends Hero {
     }
 
     renderAttribute() {
-        let heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`);
-        let attribute = document.createElement('div');
+        let heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`),
+            attribute = document.createElement('div');
+        
         attribute.id = `attribute-${(this.name).toLowerCase().replace(" ", "")}`;
         attribute.classList.add('attributeSymbol');
         attribute.style.backgroundImage = "url('../images/agility-attribute.png')";
@@ -200,6 +203,7 @@ class AgilityHero extends Hero {
 
     addAttributeHover() {
         let hero = document.querySelector(`#${(this.type) + `-` + (this.name).toLowerCase().replace(" ", "")}`);
+
         hero.addEventListener('mouseenter', () => {
             let attribute = document.querySelector(`#attribute-${(this.name).toLowerCase().replace(" ", "")}`);
             attribute.classList.add('attributeAction');
@@ -217,11 +221,12 @@ class IntelegenceHero extends Hero {
     }
     
     renderPodium() {
-        let hero = document.createElement('img');
+        let hero = document.createElement('img'),
+            heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`);
+        
         hero.id = `${(this.type) + `-` + (this.name).toLowerCase().replace(" ", "")}`;
         hero.src = `./images/${(this.name).toLowerCase().replace(" ", "")}.jpg`;
         hero.alt = `${(this.name)}`;
-        let heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`);
         heroContainer.append(hero);
     }
 
@@ -234,8 +239,9 @@ class IntelegenceHero extends Hero {
     }
 
     renderAttribute() {
-        let heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`);
-        let attribute = document.createElement('div');
+        let heroContainer = document.querySelector(`#container-${(this.name).toLowerCase().replace(" ", "")}`),
+            attribute = document.createElement('div');
+        
         attribute.id = `attribute-${(this.name).toLowerCase().replace(" ", "")}`;
         attribute.classList.add('attributeSymbol');
         attribute.style.backgroundImage = "url('../images/intelligence-attribute.png')";
@@ -244,6 +250,7 @@ class IntelegenceHero extends Hero {
 
     addAttributeHover() {
         let hero = document.querySelector(`#${(this.type) + `-` + (this.name).toLowerCase().replace(" ", "")}`);
+
         hero.addEventListener('mouseenter', () => {
             let attribute = document.querySelector(`#attribute-${(this.name).toLowerCase().replace(" ", "")}`);
             attribute.classList.add('attributeAction');
