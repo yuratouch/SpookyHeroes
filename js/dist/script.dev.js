@@ -56,7 +56,8 @@ var DATA = [{
   type: "intelegence"
 }];
 var ACCORDION = document.querySelector("#accordionSpookyHeroes"),
-    PODIUM = document.querySelector("#podium");
+    PODIUM = document.querySelector("#podium"),
+    METHODS = ["renderContainer", "renderPodium", "addAccordionClick", "renderAttribute", "addAttributeHover"];
 
 var Heroes =
 /*#__PURE__*/
@@ -80,8 +81,8 @@ function () {
       var heroesAccordion = heroes.map(function (hero, index) {
         return hero.renderHero(index);
       }).join("");
-      var heroesContainer = heroes.map(function (hero, index) {
-        return hero.renderContainer(index);
+      var heroesContainer = heroes.map(function (hero) {
+        return hero.renderContainer();
       }).join("");
       var heroesPodium = heroes.map(function (hero) {
         return hero.renderPodium();
@@ -91,6 +92,9 @@ function () {
       }).join("");
       var heroesAttribute = heroes.map(function (hero) {
         return hero.renderAttribute();
+      }).join("");
+      var heroesaddAttributeHover = heroes.map(function (hero) {
+        return hero.addAttributeHover();
       }).join("");
       ACCORDION.innerHTML = heroesAccordion;
     }
@@ -175,6 +179,21 @@ function (_Hero) {
       attribute.style.backgroundImage = "url('../images/strength-attribute.png')";
       heroContainer.prepend(attribute);
     }
+  }, {
+    key: "addAttributeHover",
+    value: function addAttributeHover() {
+      var _this2 = this;
+
+      var hero = document.querySelector("#".concat(this.type + "-" + this.name.toLowerCase().replace(" ", "")));
+      hero.addEventListener('mouseenter', function () {
+        var attribute = document.querySelector("#attribute-".concat(_this2.name.toLowerCase().replace(" ", "")));
+        attribute.classList.add('attributeAction');
+      });
+      hero.addEventListener('mouseleave', function () {
+        var attribute = document.querySelector("#attribute-".concat(_this2.name.toLowerCase().replace(" ", "")));
+        attribute.classList.remove('attributeAction');
+      });
+    }
   }]);
 
   return StreightHero;
@@ -204,11 +223,11 @@ function (_Hero2) {
   }, {
     key: "addAccordionClick",
     value: function addAccordionClick() {
-      var _this2 = this;
+      var _this3 = this;
 
       var hero = document.querySelector("#".concat(this.type + "-" + this.name.toLowerCase().replace(" ", "")));
       hero.addEventListener('click', function () {
-        var button = document.querySelector("button[aria-controls=\"collapse".concat(_this2.name.replace(" ", ""), "\"]"));
+        var button = document.querySelector("button[aria-controls=\"collapse".concat(_this3.name.replace(" ", ""), "\"]"));
         button.click();
       });
     }
@@ -221,6 +240,21 @@ function (_Hero2) {
       attribute.classList.add('attributeSymbol');
       attribute.style.backgroundImage = "url('../images/agility-attribute.png')";
       heroContainer.prepend(attribute);
+    }
+  }, {
+    key: "addAttributeHover",
+    value: function addAttributeHover() {
+      var _this4 = this;
+
+      var hero = document.querySelector("#".concat(this.type + "-" + this.name.toLowerCase().replace(" ", "")));
+      hero.addEventListener('mouseenter', function () {
+        var attribute = document.querySelector("#attribute-".concat(_this4.name.toLowerCase().replace(" ", "")));
+        attribute.classList.add('attributeAction');
+      });
+      hero.addEventListener('mouseleave', function () {
+        var attribute = document.querySelector("#attribute-".concat(_this4.name.toLowerCase().replace(" ", "")));
+        attribute.classList.remove('attributeAction');
+      });
     }
   }]);
 
@@ -251,11 +285,11 @@ function (_Hero3) {
   }, {
     key: "addAccordionClick",
     value: function addAccordionClick() {
-      var _this3 = this;
+      var _this5 = this;
 
       var hero = document.querySelector("#".concat(this.type + "-" + this.name.toLowerCase().replace(" ", "")));
       hero.addEventListener('click', function () {
-        var button = document.querySelector("button[aria-controls=\"collapse".concat(_this3.name.replace(" ", ""), "\"]"));
+        var button = document.querySelector("button[aria-controls=\"collapse".concat(_this5.name.replace(" ", ""), "\"]"));
         button.click();
       });
     }
@@ -268,6 +302,21 @@ function (_Hero3) {
       attribute.classList.add('attributeSymbol');
       attribute.style.backgroundImage = "url('../images/intelligence-attribute.png')";
       heroContainer.prepend(attribute);
+    }
+  }, {
+    key: "addAttributeHover",
+    value: function addAttributeHover() {
+      var _this6 = this;
+
+      var hero = document.querySelector("#".concat(this.type + "-" + this.name.toLowerCase().replace(" ", "")));
+      hero.addEventListener('mouseenter', function () {
+        var attribute = document.querySelector("#attribute-".concat(_this6.name.toLowerCase().replace(" ", "")));
+        attribute.classList.add('attributeAction');
+      });
+      hero.addEventListener('mouseleave', function () {
+        var attribute = document.querySelector("#attribute-".concat(_this6.name.toLowerCase().replace(" ", "")));
+        attribute.classList.remove('attributeAction');
+      });
     }
   }]);
 
